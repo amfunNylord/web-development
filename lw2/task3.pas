@@ -2,13 +2,23 @@ PROGRAM PrintHelloDear(INPUT, OUTPUT);
 USES
   Dos;
 VAR
-  QueryString: STRING;
+  QueryString, UserName: STRING;
+  NameLength: INTEGER;
 BEGIN
   QueryString := GetEnv('QUERY_STRING');
   WRITELN;
-  IF QueryString = ''
+  IF (POS('name=', QueryString) = 1)
   THEN
-    WRITELN('Hell Anonymous!')
+    BEGIN
+      IF (POS('&', QueryString) > 0)
+      THEN
+        NameLength := LENGTH(QueryString) - POS('&', QueryString) - 1
+      ELSE
+        NameLength := LENGTH(QueryString);
+      UserName := COPY(QueryString, 6, NameLength);
+      WRITELN('Hello dear, ', UserName, '!')
+    END
   ELSE
-    WRITELN('Hello dear, ', QueryString,'!')
+    WRITELN('Hello Anonymous!')
 END.
+
