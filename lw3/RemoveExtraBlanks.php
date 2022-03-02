@@ -1,3 +1,8 @@
 <?php
 header("Content-Type: text/plain");
-echo implode(' ', explode(' ', $_GET['text']));
+
+if (isset($_GET["text"])) {
+   $_GET["text"] = trim($_GET["text"]);
+   $_GET["text"] = preg_replace("/\s\s+/",  " ", $_GET["text"]);
+   echo $_GET["text"];
+}

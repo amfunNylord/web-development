@@ -1,66 +1,54 @@
 <?php
 header("Content-Type: text/plain");
-$password = $_GET['password'];
-$strength = 0;
+
 $digits = 0;
-$upperCase = 0;
+$strength = 0;
 $lowerCase = 0;
-$countOfChar = array();
-if (ctype_alnum($password))
+$upperCase = 0;
+$duplicates = 0;
+
+if (isset($_GET['password']))
 {
-    $chars = str_split($password);
-    foreach ($chars as $char)
-    {
-	    if (is_numeric($char))
+	$password = $_GET['password'];
+	if (ctype_alnum($password))
+	{
+		$digits = strlen(preg_replace('/[^0-9]/ui', '', $password));
+		$lowerCase = strlen(preg_replace('/[^a-z]/', '', $password));
+		$upperCase = strlen(preg_replace('/[^A-Z]/', '', $password));
+		$chars = count_chars($password, 1);
+		foreach ($chars as $char)
 		{
-		    $digits += 1;			
-		} 
-		else if (ctype_upper($char))
-		{
-		    $upperCase += 1;
-		} 
-		else if (ctype_lower($char))
-		{
-			$lowerCase += 1;
+			if ($char > 1)
+			{
+				$duplicates += $char;
+			}
 		}
-		if (array_key_exists($char, $countOfChar))
+		$strength += 4 * (strlen($password) + $digits);
+		if ($upperCase != 0)
 		{
-		    $countOfChar[$char] += 1;	
-		} 
-		else
-		{
-		    $countOfChar[$char] = 1;	
+			$strength += 2 * (strlen($password) - $upperCase);
 		}
-	}
-	$strength += strlen($password) * 4;
-	$strength += $digits * 4;
-	if ($uppercase != 0)
-	{
-	    $strength += (strlen($password) - $upperCase) * 2;	
-	}
-	if ($lowercase != 0)
-	{
-	    $strength += (strlen($password) - $lowerCase) * 2;	
-	}
-	if (ctype_alpha($password))
-	{
-		$strength -= strlen($password);
-	}
-	if (is_numeric($password))
-	{
-		$strength -= strlen($password);
-	}
-	foreach ($countOfChar as $count)
-	{
-		if ($count > 1)
+		if ($lowerCase != 0)
 		{
-		    $strength -= $count;	
+			$strength += 2 * (strlen($password) - $lowerCase);
 		}
+		if (ctype_alpha($password))
+		{
+			$strength -= strlen($password);
+		}
+		if (ctype_digit($password))
+		{
+			$strength -= strlen($password);
+		}
+		$strength -= $duplicates;
+		echo 'Сила пароля = ', $strength;
 	}
-	echo 'Your password strength is ', $strength;
+	else
+	{
+		echo 'Пароль должен содержать только цифры и английские символы';
+	}
 }
 else
 {
-	echo 'Your password must contain only letters and numbers';
+	echo 'Пароль не передан';
 }
-

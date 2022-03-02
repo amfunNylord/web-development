@@ -1,11 +1,32 @@
 <?php
 header("Content-Type: text/plain");
-$text = $_GET['identifier'];
-if (ctype_alnum($text) and !is_numeric($text[0]))
+
+if (isset($_GET['identifier']))
 {
-    echo 'yes';
-} 
+    $text = $_GET['identifier'];
+    if (ctype_alnum($text) and !is_numeric($text[0]))
+    {
+        echo 'Является идентификатором по SR3';
+    }
+    else
+    {
+        echo 'Не является идентификатором по SR3, так как должен содержать только буквы и цифры и не начинатсья с цифры';
+    }         
+}
 else
 {
-    echo 'no, identifier must start with a letter and a contain only leters and numbers';     
+    echo 'Идентификатор не передан';
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
