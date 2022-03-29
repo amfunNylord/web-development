@@ -1,0 +1,189 @@
+.logo
+{
+    font: normal 700 30.8354px/122.33% 'Montserrat';
+}
+.span
+{
+    color: #EE58B6;
+}
+.toplink
+{
+    font: normal 500 16px/1.25 'Montserrat';
+}
+.top_button 
+{
+    width: 247px;
+    height: 55px;
+    background: #05090C;
+    border-radius: 4.59px;
+}
+.toplink_button
+{
+    font: normal 600 16px/1 'Montserrat';
+    color: #FFF;
+    width: 167px;
+    height: 17px;
+    padding: 18.36px 34.425px;
+    margin: 0px 8.0325px;
+}
+.header
+{
+    font: normal 600 100px/122.35% 'Montserrat';
+}
+.h2
+{
+    font: normal 400 26px/120% 'Roboto Condensed';
+    width: 545px;
+    height: 62px;
+}
+.middle_button
+{
+    width: 332px;
+    height: 55px;
+    background: #05090C;
+    border-radius: 4.59px;
+}
+.midlink_button
+{
+    font: normal 600 16px/16.46px 'Montserrat';
+    color: #FFF;
+    width: 167px;
+    height: 17px;
+    padding-top: 19px;
+    padding-left: 72.5px;
+    margin: 0px 8.0325px; 
+}
+.background__middle
+{
+    background :#000;
+    width: 1920px;
+    height: 398px;
+}
+.icon1 
+{
+    position: absolute;
+    width: 285px;
+    height: 145px;
+    padding: 111px 1244px 142px 391px;
+}
+.icon2 
+{
+    position: absolute;
+    width: 337px;
+    height: 132px;
+    padding: 111px 792px 155px 791px;
+}
+.icon3 
+{
+    position: absolute;
+    width: 293px;
+    height: 132px;
+    padding: 111px 391px 155px 1236px;
+}
+.icon1image
+{
+    padding-left: 113px;
+}
+.icon2image
+{
+    padding-left: 137.95px;
+}
+.icon3image
+{
+    padding-right: 116.94px;
+    padding-left: 116.05px;
+}
+.picons
+{
+    font: normal 400 22px/120% 'Roboto Condensed';
+    color: #FFF;
+}
+.icontext1
+{
+    width: 303px;
+    height: 52px;
+    text-align: center;
+}
+.icontext2
+{
+    width: 337px;
+    height: 52px;
+    text-align: center;
+}
+.icontext3
+{
+    width: 336.95px;
+    height: 52px;
+    text-align: center;
+}
+.h3
+{
+    font: normal 500 48px/126.06% 'Montserrat';
+}
+.h3text
+{
+    font: normal 400 18px/135% 'Roboto Condensed';
+}
+.h3text__1
+{
+    width: 574px;
+    height: 48px;
+}
+.h3text__2
+{
+    width: 574px;
+    height: 44px;
+}
+.bottomboxes
+{
+    width: 358px;
+    height: 190px;
+    background: #000;
+    border-radius: 7.35723px;
+}
+.bottomboxes_icon
+{
+    padding-left: 39.35px;
+    padding-top: 32.36px;
+}
+.bottomboxes__text
+{
+    font: normal 400 18px/21px 'Roboto Condensed';
+    color:#FFF;
+}
+.bottomboxes__text_1-5
+{
+    width: 269.77px;
+    height: 51.5px;
+}
+.bottomboxes_padding_1-4
+{
+    padding-left: 39.25px;
+}
+.bottomboxes_padding_5
+{
+    padding-left: 39.74px;
+}
+.bottomboxes_padding_6
+{
+    padding-left: 39px;
+}
+.bottomboxes__text_6
+{
+    width: 286px;
+    height: 52px;
+}
+.background__footer
+{
+    background: #000;
+    width: 1920px;
+    height: 108px;
+    padding-left: 876px;
+    padding-right: 877px; 
+}
+.footer
+{
+    font: normal 700 30.8354px/122.33% 'Montserrat';
+    color: #FFF;
+    padding-top: 35px;
+}
