@@ -1,0 +1,38 @@
+.get-form
+{
+    display: flex;
+    padding-left: 59px;
+    padding-top: 52px;
+    max-width: 1013px;
+}
+
+.get-form__input-text
+{
+    background: #fff;
+    border: 1px solid #c0c0c0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-top: 20.5px;
+    padding-bottom: 20.5px;
+    padding-left: 28px;
+    margin-right: 53px;
+    font: 500 18px/1.22 Montserrat;
+    color: #999;
+    max-width: 480px;
+}
+
+.get-form__submit-button
+{
+    padding-top: 20.5px;
+    padding-bottom: 20.5px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 5px;
+    font: 500 18px/1.22 Montserrat;
+    max-width: 480px;
+}
+
+.get-form__output-text
+{
+    font: 400 18px/1.35 Roboto Condensed;
+}
