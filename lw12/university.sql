@@ -11,7 +11,7 @@ CREATE TABLE faculty
   ENGINE = InnoDB
 ;
 
-CREATE TABLE class
+CREATE TABLE class  /* group -  резерв*/
 (
 	id 				INT AUTO_INCREMENT 	NOT NULL,
 	name 			VARCHAR(255)		NOT NULL,
@@ -41,21 +41,21 @@ CREATE TABLE student
 INSERT INTO faculty (name)
 VALUES 
 	('ФИВТ'),
-	('РТФ'),
-	('ЭФ')
+	('ФУП'),
+	('ИЛП')
 ;
 
 INSERT INTO class (name, faculty_id)
 VALUES
-	('ПС-11', 1),
-    ('ПС-12', 1),
-    ('ПС-13', 1),
-    ('РТФ-11', 2),
-    ('РТФ-12', 2),
-    ('РТФ-13', 2),
-    ('ЭФ-11', 3),
-    ('ЭФ-12', 3),
-    ('ЭФ-13', 3)
+	('А-1', 1),
+    ('А-2', 1),
+    ('А-3', 1),
+    ('Б-1', 2),
+    ('Б-2', 2),
+    ('Б-3', 2),
+    ('В-1', 3),
+    ('В-2', 3),
+    ('В-3', 3)
 ;
 
 INSERT INTO student (surname, name, patronymic, age, class_id)
@@ -107,51 +107,51 @@ VALUES
 	('Арсибеков', 		'Артем', 		'Артурович', 		18, 9)
 ;
 
-SELECT /*Для получения всех студентов в возрасте 19 лет*/
-	student.surname AS Фамилия,
-    student.name AS Имя,
-    student.patronymic AS Отчество,
-    student.age AS Возраст,
-    class.name AS Группа
+SELECT /*19 лет*/
+	s.surname AS Фамилия,
+    s.name AS Имя,
+    s.patronymic AS Отчество,
+    s.age AS Возраст,
+    c.name AS Группа
 FROM 
-	student
-    INNER JOIN class ON student.class_id = class.id
+	student s
+    INNER JOIN class c ON s.class_id = c.id
 WHERE
-	student.age = 19;
+	s.age = 19;
     
-SELECT  /*Для получения всех студентов из конкретной группы.*/
-	student.surname AS Фамилия,
-    student.name AS Имя,
-    student.patronymic AS Отчество,
-    class.name AS Группа
+SELECT  /* конкретная группа.*/
+	s.surname AS Фамилия,
+    s.name AS Имя,
+    s.patronymic AS Отчество,
+    c.name AS Группа
 FROM 
-	student
-    INNER JOIN class ON student.class_id = class.id
+	student s
+    INNER JOIN class c ON s.class_id = c.id
 WHERE
-	class.name = 'ПС-12';
+	c.name = 'В-1';
     
-SELECT  /*Для получения всех студентов из конкретного факультета*/
-	student.surname AS Фамилия,
-    student.name AS Имя,
-    student.patronymic AS Отчество,
-    faculty.name AS Факультет
+SELECT  /*конкретный факультет*/
+	s.surname AS Фамилия,
+    s.name AS Имя,
+    s.patronymic AS Отчество,
+    f.name AS Факультет
 FROM 
-	student
-    INNER JOIN class ON student.class_id = class.id
-    INNER JOIN faculty ON faculty.id = class.faculty_id
+	student s
+    INNER JOIN class c ON s.class_id = c.id
+    INNER JOIN faculty f ON f.id = c.faculty_id
 WHERE
-	faculty.name = 'ФИВТ';
+	f.name = 'ФИВТ';
     
 SELECT  /*Для получения факультета и группы конкретного студента*/
-	student.id,
-	student.surname AS Фамилия,
-    student.name AS Имя,
-    student.patronymic AS Отчество,
-    class.name AS Группа,
-    faculty.name AS Факультет
+	s.id,
+	s.surname AS Фамилия,
+    s.name AS Имя,
+    s.patronymic AS Отчество,
+    c.name AS Группа,
+    f.name AS Факультет
 FROM 
-	student
-    INNER JOIN class ON student.class_id = class.id
-    INNER JOIN faculty ON faculty.id = class.faculty_id
+	student s
+    INNER JOIN class c ON s.class_id = c.id
+    INNER JOIN faculty f ON f.id = c.faculty_id
 WHERE
-	student.surname = 'Михайлов' AND student.name = 'Александр';
+	s.id = '28';
