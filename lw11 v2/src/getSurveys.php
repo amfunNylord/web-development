@@ -9,16 +9,12 @@ if (!file_exists("./data"))
     mkdir("./data");
 }
 
-$arrayFile = scandir("./data"); // may be needs delete . and ..
+$arrayFile = scandir("./data");
+array_shift($arrayFile);
+array_shift($arrayFile); 
 $out =[];
 
-array_shift($arrayFile);
-array_shift($arrayFile);
-
 foreach($arrayFile as $path) {
-
-
-
     $file = fopen("./data/" . $path, "r");
     $name = getFileSubstring(fgets($file));
     $email = getFileSubstring(fgets($file));
